@@ -11,7 +11,13 @@
     <header>
         @include('_layout._header')
     </header>
-
+    <div>
+        <h1>Low budget padding top</h1>
+        <h1>Low budget padding top</h1>
+        <h1>Low budget padding top</h1>
+        <h1>Low budget padding top</h1>
+        <h1>Low budget padding top</h1>
+    </div>
     <main role="main" class="flex-shrink-0">
         <div class="container">
             @yield ('content')

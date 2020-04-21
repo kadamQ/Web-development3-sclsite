@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('_layout.master');
 });
+
+Auth::routes();
+Route::get('/feed', 'FeedController@index')->name('feed');
+Route::get('/home', 'HomeController@index')->name('home');
