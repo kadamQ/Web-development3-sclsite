@@ -14,6 +14,9 @@
 
 Route::get('/', 'FeedController@index')->name('feed.index');
 
+Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
+
 Route::group(['middleware' => 'auth'], function() {
     
 Route::get('/posting', 'PostController@create')->name('post.create');
@@ -26,6 +29,6 @@ Route::post('/delete-post/{post}', 'PostContoller@destory')->name('post.delete')
 
 });
 
-Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
 
 Auth::routes();

@@ -13,7 +13,7 @@
 
 @section('content')
 <div class="card w-75 mt-5 mx-auto">
-    <div class="card-header">{{ __('Publish post') }}</div>
+    <div class="card-header">{{ __('Post') }}</div>
     <div class="card-body">
         <form action="{{ route('post.create') }}" method="POST">
             @csrf
@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-group">
-                <label for="post[tag_id]">{{ __('tag') }}</label>
+                <label for="post[tag_id]">{{ __('Tag') }}</label>
                 <select class="form-control{{ $errors->has('post.tag_id') ? ' is-invalid' : '' }}" name="post[tag_id]">
                     <option>{{ __("Select your tag") }}</option>
                     @foreach ($tag_options as $tag)

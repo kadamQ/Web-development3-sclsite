@@ -15,6 +15,7 @@ class FeedController extends Controller
     public function index()
     {
         $posts = Post::all();
+        
         return view("feed.index")
             ->with([
                 'posts' => $posts

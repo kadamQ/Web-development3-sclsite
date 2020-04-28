@@ -6,7 +6,7 @@
         @endcan
     </div>
     <div class="card-body">
-        <p>{{ $post->text_content }}</p>
+        <div> {!! $post->text_content !!} </div>
         <p>{{ $post->tag->title }}</p>
     </div>
 </article>
