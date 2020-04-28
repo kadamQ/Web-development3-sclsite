@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('_layout.master');
+
+Route::get('/', 'FeedController@index')->name('feed.index');
+
+Route::group(['middleware' => 'auth'], function() {
+    
+Route::get('/posting', 'PostController@create')->name('post.create');
+Route::post('/posting', 'PostController@store');
+
 });
 
+Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
 Auth::routes();
-Route::get('/feed', 'FeedController@index')->name('feed');
-Route::get('/home', 'HomeController@index')->name('home');

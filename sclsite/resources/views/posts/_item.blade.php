@@ -2,6 +2,7 @@
     <div class="card-header">
     </div>
     <div class="card-body">
-        <p>{{ $post->description }}</p>
+        <h1>{{ $post->title }}</h1>
+        <p>{{ $post->text_content }}</p>
     </div>
 </article>
