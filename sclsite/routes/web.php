@@ -16,6 +16,7 @@ Route::get('/', 'FeedController@index')->name('feed.index');
 
 Route::get('/post/{post}', 'PostController@show')->name('post.show');
 
+Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['middleware' => 'auth'], function() {
     
