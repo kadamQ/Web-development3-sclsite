@@ -1,7 +1,11 @@
 @extends('_layout.master')
 
 @section('content')
-    @foreach($posts as $post)
-       @include('posts._item')
-    @endforeach
+<div class="d-flex">
+    <div class="col-12 mx-auto">
+        @foreach($posts as $post)
+        @include('posts._item')
+     @endforeach
+    </div>
+</div>
 @endsection
