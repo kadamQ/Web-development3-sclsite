@@ -66,4 +66,14 @@ class PostController extends Controller
         return redirect()
             ->route('feed.index');
     }
+
+    public function comment(Post $post, Request $request)
+    {
+        $post->comments()->create([
+            'user_id' => Auth::user()->id,
+            'text' => $request->comment,
+        ]);
+
+        return back()->with('success', __('Comment saved successfully'));
+    }
 }

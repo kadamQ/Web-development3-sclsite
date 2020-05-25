@@ -11,6 +11,7 @@
 |
 */
 
+Auth::routes();
 
 Route::get('/', 'FeedController@index')->name('feed.index');
 
@@ -20,16 +21,15 @@ Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['middleware' => 'auth'], function() {
     
-Route::get('/posting', 'PostController@create')->name('post.create');
-Route::post('/posting', 'PostController@store');
+    Route::get('/posting', 'PostController@create')->name('post.create');
+    Route::post('/posting', 'PostController@store');
 
-Route::get('/update-post/{post}', 'PostController@edit')->name('post.edit');
-Route::post('/update-post/{post}', 'PostController@update');
+    Route::get('/update-post/{post}', 'PostController@edit')->name('post.edit');
+    Route::post('/update-post/{post}', 'PostController@update');
 
-Route::post('/delete-post/{post}', 'PostContoller@destory')->name('post.delete');
+    Route::post('/delete-post/{post}', 'PostContoller@destory')->name('post.delete');
 
+    Route::post('/comment-post/{post}', 'PostController@comment')->name('post.comment');
+
+    Route::post('/comment-reply/{comment}', 'CommentController@comment') ->name('comment.reply');
 });
-
-
-
-Auth::routes();

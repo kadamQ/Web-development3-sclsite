@@ -17,6 +17,7 @@ class PostRequest extends FormRequest
             'post.title' => 'required|max:190',
             'post.tag_id' => 'required|exists:tags,id',
             'post.text_content' => 'required|max:400',
+            'comment.text' => 'max:100',
         ];
     }
 }

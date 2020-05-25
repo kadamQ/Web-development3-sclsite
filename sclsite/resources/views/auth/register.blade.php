@@ -2,9 +2,6 @@
 
 @section('content')
 <h1>{{ __("Register") }}</h1>
-<?php
-    //dd($errors);
-?>
 @if ($errors->count() > 0)
     <div class="alert alert-danger" role = "alert">
         <ul>
