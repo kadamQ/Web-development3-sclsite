@@ -6,6 +6,7 @@
             {{ $comment->user->nickname }}
         </a>
              | {{ $comment->created_at->diffForhumans() }}
+             | Replies: {{ $comment->replies->count() }}
         </p>
         <p>{{ $comment->text }}</p>
         </div>

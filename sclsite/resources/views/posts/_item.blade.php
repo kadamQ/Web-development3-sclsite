@@ -9,7 +9,7 @@
         | Created by <a href="{{ route('profile.show', $post->user) }}">
             {{ $post->user->nickname }}
         </a>
-        | Comments: {{ $post->comments->count() }}
+        | Comments: {{ $post->comments->count() }}        
         | Votes: 
     </div>
     <div class="card-body">
