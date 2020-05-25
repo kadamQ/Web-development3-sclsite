@@ -29,23 +29,25 @@
             @foreach ($errors->get('lastname') as $error)
                 <p class="invalid-feedback">{{ $error }}</p>
             @endforeach
-        @endif
+            @endif
         </div>
         <div class="form-group">
             <label for="nickname">{{ __("Nickname") }}</label>
             <input class="form-control{{ $errors->has('nickname') ? ' is-invalid' : '' }}" type="text" name ="nickname" value="{{ old('nickname') }}">
             @if ($errors ->has('nickname'))
-            @foreach ($errors->get('nickname') as $error)
-                <p class="invalid-feedback">{{ $error }}</p>
-            @endforeach
+                @foreach ($errors->get('nickname') as $error)
+                    <p class="invalid-feedback">{{ $error }}</p>
+                @endforeach
+            @endif
         </div>
         <div class="form-group">
             <label for="email">{{ __("Email address") }}</label>
             <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" name ="email" value="{{ old('email') }}">
             @if ($errors ->has('email'))
-            @foreach ($errors->get('email') as $error)
-                <p class="invalid-feedback">{{ $error }}</p>
-            @endforeach
+                @foreach ($errors->get('email') as $error)
+                    <p class="invalid-feedback">{{ $error }}</p>
+                @endforeach
+            @endif
         </div>
         <div class="form-group">
             <label for="password">{{ __("Password") }}</label>

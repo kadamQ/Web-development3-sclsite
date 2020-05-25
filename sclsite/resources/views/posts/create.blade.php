@@ -50,7 +50,6 @@
             <div class="form-group text-right">
                 <button class="btn btn-primary" type="submit">{{ __('Post') }}</button>
             </div>
-
         </form>
     </div>
 </div>

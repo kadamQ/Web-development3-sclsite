@@ -51,7 +51,12 @@
             <div class="form-group text-right">
                 <button class="btn btn-primary" type="submit">{{ __('Update') }}</button>
             </div>
-
+        </form>
+        <form action="{{ route('post.delete', ['post' => $post]) }}" method="POST">
+            @csrf
+            <div class="form-group text-right">
+                <button class="btn btn-primary" type="submit">{{ __('Delete') }}</button>
+            </div>
         </form>
     </div>
 </div>

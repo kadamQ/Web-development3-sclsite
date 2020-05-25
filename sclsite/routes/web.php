@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/update-post/{post}', 'PostController@edit')->name('post.edit');
     Route::post('/update-post/{post}', 'PostController@update');
 
-    Route::post('/delete-post/{post}', 'PostContoller@destory')->name('post.delete');
+    Route::post('/delete-post/{post}', 'PostController@destory')->name('post.delete');
 
     Route::post('/comment-post/{post}', 'PostController@comment')->name('post.comment');
 

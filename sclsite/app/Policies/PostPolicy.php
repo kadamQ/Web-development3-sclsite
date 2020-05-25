@@ -10,13 +10,17 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    // public function before($user, $ability)
-    // {
-    //     if ($ability == 'edit' && $user->isAdmin)
-    //     {
-    //         return true;
-    //     }
-    // }
+    public function before($user, $ability)
+    {
+        if ($ability == 'update' && $user->isAdmin)
+            {
+                return true;
+            }
+            if ($ability == 'delete' && $user->isAdmin)
+            {
+                return true;
+            }
+    }
 
     /**
      * Determine whether the user can view any models.
