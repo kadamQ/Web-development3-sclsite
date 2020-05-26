@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Post extends Model
 {
@@ -24,5 +25,13 @@ class Post extends Model
     {
         return $this->morphMany(Comment::class,'commentable')
             ->orderBy('created_at', 'desc');
+    }
+
+    public function votes(){
+        return $this->hasMany(Vote::class, 'post_id');
+    }
+    
+    public function isLiked(){
+        return $this->votes()->where('user_id', Auth::user()['id'])->first() == null;
     }
 }

@@ -6,17 +6,15 @@
         {!! $post->text_content !!}
     </div>
     <hr>
-    @auth
     <form action="{{ route('post.comment', $post) }}" method ="POST">
             @csrf
             <div class="form-group">
-            <textarea class="form-control" name="comment" placholder="{{ __('Comment... ') }}"></textarea>
+            <textarea class="form-control" name="comment" placeholder="{{ __("Comment... ") }}"></textarea>
             </div>
             <div class="form-group">
-                <button class="btn btn-success btn-block" tpye="submit">Comment</button>
+                <button class="btn btn-dark btn-block" tpye="submit">Comment</button>
             </div>
         </form>   
-    @endauth
     <h3>{{ __("Comments") }}</h3>
     <div>
         @foreach ($post->comments as $comment)

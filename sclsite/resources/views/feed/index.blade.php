@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="d-flex">
-    <div class="col-12 mx-auto">
+    <div class="col-8 mx-auto">
         @foreach($posts as $post)
         @include('posts._item')
      @endforeach

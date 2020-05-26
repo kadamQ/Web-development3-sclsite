@@ -11,10 +11,13 @@
             <li class="nav-item">
               <a class="btn btn-outline-light" href="{{ route('post.create') }}">{{ __('Upload a post!') }}</a>
             </li>
-            <li class="nav-item">
-              <a  class="nav-link" href="{{ route('profile.show', Auth::user()) }}">
-                {{ Auth::user()->nickname }}
+            <li class="nav-item ">
+              <a class="nav-link" href="{{ route('profile.show', Auth::user()) }}">
+                {{ Auth::user()->nickname }} 
               </a>
+            </li>
+            <li class="nav-item">
+              <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="position:relative; width:32px; height:32px; top:5px; border-radius:50%">
             </li>
             <li class="nav-item">
               <form action="{{ route ('logout') }}"  method="POST">

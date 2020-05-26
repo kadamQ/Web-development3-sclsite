@@ -28,6 +28,7 @@ class PostPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
+    
     public function viewAny(User $user)
     {
         return true;
@@ -40,6 +41,7 @@ class PostPolicy
      * @param  \App\App\models\Post  $post
      * @return mixed
      */
+
     public function view(User $user, Post $post)
     {
         return true;
@@ -51,6 +53,7 @@ class PostPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
+    
     public function create(User $user)
     {
         return true;

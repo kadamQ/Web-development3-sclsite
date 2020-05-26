@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/posting', 'PostController@create')->name('post.create');
     Route::post('/posting', 'PostController@store');
 
+    Route::post('/update-profile/{user}', 'ProfileController@update')->name('profile.update');
+
     Route::get('/update-post/{post}', 'PostController@edit')->name('post.edit');
     Route::post('/update-post/{post}', 'PostController@update');
 
@@ -32,4 +34,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/comment-post/{post}', 'PostController@comment')->name('post.comment');
 
     Route::post('/comment-reply/{comment}', 'CommentController@comment') ->name('comment.reply');
+
+    Route::post('/vote-post/{post}', 'VotesController@votePost')->name('post.vote');
 });
