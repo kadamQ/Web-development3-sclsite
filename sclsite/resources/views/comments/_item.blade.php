@@ -12,17 +12,22 @@
         </div>
     </div>
     <div class="replies pl-5">
+        @auth
             @if (!$comment->is_reply)
                 <form action="{{ route('comment.reply', $comment) }}" method ="POST">
                     @csrf
                     <div class="form-group">
-                        <textarea class="form-control" name="comment" placeholder="{{ __('Comment... ') }}"></textarea>
+                        <textarea placeholder="{{ __('Reply... ') }}" name="comment[text]" class="form-control{{ $errors->has('comment.text') ? ' is-invalid' : '' }}" ></textarea>
+                        @foreach ($errors->get('comment.text') as $error)
+                            <p class="invalid-feedback">{{ $error }}</p>
+                        @endforeach
                     </div>
                     <div class="form-group">
                         <button class="btn btn-dark btn-block" tpye="submit">Reply</button>
                     </div>
-                </form>  
+                </form>
             @endif
+        @endauth
         @foreach ($comment->replies as $reply)
             @include('comments._item', ['comment' => $reply])
         @endforeach

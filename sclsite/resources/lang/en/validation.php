@@ -150,6 +150,7 @@ return [
         'post.title' => 'title',
         'post.tag_id' => 'tag',
         'post.text_content' => 'text',
+        'comment.text' => 'comment'
     ],
 
 ];

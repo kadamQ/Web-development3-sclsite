@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
-    public function comment(Comment $comment, Request $request)
+    public function comment(Comment $comment, CommentRequest $request)
     {
         if (!$comment->is_reply) {
 
             $comment->replies()->create([
                 'user_id' => Auth::user()->id,
-                'text' => $request->comment,
+                'text' => $request->comment['text'],
             ]);
         }
-        return back()->with(['success', __('Reply saved succesfully')]);
+        return back();
     }
 }

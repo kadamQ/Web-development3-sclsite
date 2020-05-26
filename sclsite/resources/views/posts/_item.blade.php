@@ -27,7 +27,7 @@
         <p> {!! $post->text_content !!} </p>
     </div>
     <div class="card-footer text-light bg-secondary text-center">
-            <i class="far fa-comments"> {{ $post->comments->count() }}</i>
+            <i class="far fa-comments"> {{ $post->comments->count() }} ||</i>
             <i class="far fa-thumbs-up">{{ $post->votes->count() }}</i>
     </div>
 </article> 

@@ -6,6 +6,7 @@ use Auth;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\CommentRequest;
 
 use Illuminate\Http\Request;
 
@@ -39,8 +40,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show')
-            ->with(compact('post'));
+        return view('posts.show')->with(compact('post'));
     }
 
     public function edit(Post $post)
@@ -66,13 +66,13 @@ class PostController extends Controller
             ->route('feed.index');
     }
 
-    public function comment(Post $post, Request $request)
+    public function comment(Post $post, CommentRequest $request)
     {
         $post->comments()->create([
             'user_id' => Auth::user()->id,
-            'text' => $request->comment,
+            'text' => $request->comment['text'],
         ]);
 
-        return back()->with('success', __('Comment saved successfully'));
+        return back();
     }
 }
