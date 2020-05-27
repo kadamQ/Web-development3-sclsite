@@ -13,7 +13,7 @@
 
 @section('content')
 <div class="card w-75 mt-5 mx-auto">
-    <div class="card-header">{{ __('Post') }}</div>
+    <h3 class="card-header">{{ __('Create your Post!') }}</h3>
     <div class="card-body">
         <form action="{{ route('post.create') }}" method="POST">
             @csrf
@@ -47,8 +47,8 @@
                 @endforeach
             </div>
 
-            <div class="form-group text-right">
-                <button class="btn btn-primary" type="submit">{{ __('Post') }}</button>
+            <div class="form-group text-left">
+                <button class="btn btn-outline-success btn-lg" type="submit">{{ __('Post') }}</button>
             </div>
         </form>
     </div>

@@ -1,7 +1,7 @@
 @extends('_layout.master')
 
 @section('content')
-    <h1>{{ $user -> nickname }} profile page 
+    <h1>{{ $user -> nickname }}'s profile page 
     <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
     </h1>
     @auth
@@ -11,7 +11,7 @@
             <input type="file" name="avatar">
             <button type="submit" class="pull-right btn btn-sm btn-dark">UPDATE</button>
         </form>
-    @endauth
+     @endauth
     <div>
         @foreach ($user->posts as $post)
             @include('posts._item')

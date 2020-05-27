@@ -9,7 +9,7 @@
           <ul class="navbar-nav ml-auto">
           @auth
             <li class="nav-item">
-              <a class="btn btn-outline-light" href="{{ route('post.create') }}">{{ __('Upload a post!') }}</a>
+              <a class="btn btn-outline-light" href="{{ route('post.create') }}">{{ __('Create a post!') }}</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="{{ route('profile.show', Auth::user()) }}">

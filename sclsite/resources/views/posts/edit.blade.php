@@ -13,11 +13,18 @@
 
 @section('content')
 <div class="card w-75 mt-5 mx-auto">
-    <div class="card-header">{{ __('Update post') }} {{$post->title}} </div>
+    <div class="card-header">         
+        <form action="{{ route('post.delete', ['post' => $post]) }}" method="POST">
+            <h3 class="form group text-left">
+                {{ __('Edit post: ') }} {{$post->title}}
+                @csrf           
+                <button onclick="return confirm('Are you sure to delete this post?')" class="float-right far fa-trash-alt btn btn-secondary btn-lg" type="submit"></button>
+            </h3>
+        </form>
+    </div>
     <div class="card-body">
         <form action="{{ route('post.edit', ['post' => $post]) }}" method="POST">
             @csrf
-
             <div class="form-group">
                 <label for="post[title]">{{ __('Title') }}</label>
                 <input class="form-control{{ $errors->has('post.title') ? ' is-invalid' : '' }}" type="text" name="post[title]" value="{{ old('post.title', $post ->title) }}">
@@ -35,8 +42,8 @@
                     @endforeach
                 </select>
                 @foreach ($errors->get('post.tag_id') as $error)
-                <p class="invalid-feedback">{{ $error }}</p>
-            @endforeach
+                    <p class="invalid-feedback">{{ $error }}</p>
+                @endforeach
             </div>
 
             <div class="form-group">
@@ -46,16 +53,10 @@
                 @foreach ($errors->get('post.text_content') as $error)
                     <p class="invalid-feedback">{{ $error }}</p>
                 @endforeach
-            </div>
 
-            <div class="form-group text-right">
-                <button class="btn btn-primary" type="submit">{{ __('Update') }}</button>
             </div>
-        </form>
-        <form action="{{ route('post.delete', ['post' => $post]) }}" method="POST">
-            @csrf
-            <div class="form-group text-right">
-                <button class="btn btn-primary" type="submit">{{ __('Delete') }}</button>
+            <div class="form-group text-left">
+                <button class="btn btn-outline-danger btn-lg" type="submit">{{ __('Update') }}</button>
             </div>
         </form>
     </div>
