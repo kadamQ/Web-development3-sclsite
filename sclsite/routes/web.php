@@ -20,6 +20,9 @@ Route::get('/post/{post}', 'PostController@show')->name('post.show');
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['middleware' => 'auth'], function() {
+
+    Route::post('profile/{user}/follow', 'FollowerController@followUser')->name('user.follow');
+    Route::post('profile/{user}/unfollow', 'FollowerController@unFollowUser')->name('user.unfollow');
     
     Route::get('/posting', 'PostController@create')->name('post.create');
     Route::post('/posting', 'PostController@store');

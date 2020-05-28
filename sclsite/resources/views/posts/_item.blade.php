@@ -12,7 +12,7 @@
                 @endcan
                 <a href="{{ route('profile.show', $post->user) }}" class="btn btn-sm btn-outline-dark ml-2">
                     {{ 'Owner: '. $post->user->nickname }} </a>
-                    <img src="/uploads/avatars/{{ $post->user->avatar }}" style="position:relative; width:32px; height:32px; left:5px;  border-radius:50%">      
+                    <img src="/uploads/avatars/{{ $post->user->avatar }}" style="position:relative; width:32px; height:32px; left:5px; border-radius:50%">
                 <form action="{{ route('post.vote', $post) }}" method="POST">
                     <div class="form-group text-right">
                     @csrf
