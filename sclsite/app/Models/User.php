@@ -45,6 +45,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
     }
+    
     public function isFollowed(User $user){
         foreach ($this->followers()->get() as $value) {
             if($value->id == $user->id){

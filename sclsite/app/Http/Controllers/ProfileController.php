@@ -15,8 +15,9 @@ class ProfileController extends Controller
     }
 
     public function update(User $user, Request $request)
-    {        
+    {           
         if($request->hasFile('avatar')){
+        $this->validate($request, ['avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',]);
             if($user->avatar != 'default.jpg'){
                 if(file_exists(public_path('uploads/avatars/'. $user->avatar))){
                     unlink(public_path('uploads/avatars/'. $user->avatar));
