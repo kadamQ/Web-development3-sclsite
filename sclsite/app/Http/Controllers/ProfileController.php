@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Image;
 
 class ProfileController extends Controller
@@ -14,12 +15,17 @@ class ProfileController extends Controller
     }
 
     public function update(User $user, Request $request)
-    {
+    {        
         if($request->hasFile('avatar')){
+            if($user->avatar != 'default.jpg'){
+                if(file_exists(public_path('uploads/avatars/'. $user->avatar))){
+                    unlink(public_path('uploads/avatars/'. $user->avatar));
+                }
+            }
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename));
-            
+
             $user->avatar = $filename;
             $user->save();
         }
