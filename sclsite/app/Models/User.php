@@ -39,9 +39,9 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'user_id')
-        ->orderBy('created_at', 'desc');
+        return $this->hasMany(Post::class, 'user_id');
     }
+    
     public function followers()
     {
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
