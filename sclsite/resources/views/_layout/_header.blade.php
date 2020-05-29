@@ -8,6 +8,9 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav ml-auto">
           @auth
+          <li class="nav-item">
+            <a class="btn btn-outline-light mr-2" href="{{ route('follows.show') }}">{{ __('Followed Users') }}</a>
+          </li>
             <li class="nav-item">
               <a class="btn btn-outline-light" href="{{ route('post.create') }}">{{ __('Create a post!') }}</a>
             </li>

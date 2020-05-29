@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-dark btn-block" tpye="submit">Comment</button>
-            </div>            
+            </div>
         </form>
     @endauth   
     <h3>{{ __("Comments") }}</h3>

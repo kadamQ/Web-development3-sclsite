@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::get('/', 'FeedController@index')->name('feed.index');
 
+Route::get('/followedposts', 'FollowerController@show')->name('follows.show');
+
 Route::get('/post/{post}', 'PostController@show')->name('post.show');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
