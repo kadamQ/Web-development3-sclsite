@@ -15,13 +15,13 @@ Auth::routes();
 
 Route::get('/', 'FeedController@index')->name('feed.index');
 
-Route::get('/followedposts', 'FollowerController@show')->name('follows.show');
-
 Route::get('/post/{post}', 'PostController@show')->name('post.show');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/followedposts', 'FollowerController@show')->name('follows.show');
 
     Route::post('profile/{user}/follow', 'FollowerController@followUser')->name('user.follow');
     Route::post('profile/{user}/unfollow', 'FollowerController@unFollowUser')->name('user.unfollow');
