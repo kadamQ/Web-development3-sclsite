@@ -10,13 +10,10 @@ use Auth;
 
 class FollowerController extends Controller
 {   
-
-// follower id oszlopnál -> aki be van jelentkezve azokat a sorokat gyűjtse össze 
-//(follower id, aki követi a másik usert)
-// majd ezeknek 
-// user_id(azok a userek akiket követ) van posztja azokat listázza ki (user id = post id -> user_id)
     public function show() 
     {
+        $posts = Post::orderBy('created_at','desc')->get()->whereIn('user_id',Auth::user()->followed()->get()->pluck('id'));
+        return view("follows.show")->with(['posts' => $posts]); 
     }
 
     public function followUser(User $user)

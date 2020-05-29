@@ -46,7 +46,6 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $tags = Tag::orderBy('title', 'asc')->get();
-
         return view('posts.edit')->with(compact('post', 'tags'));
     }
 
